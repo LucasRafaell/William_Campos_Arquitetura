@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Escritório de arquitetura especializado em projetos residenciais e corporativos">
+  <title>William Campos Arquitetura | Design Moderno</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img src="assets/imagens/logo.png" alt="William Campos Arquitetura" width="50">
+    </div>
+    <nav class="header__nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#projetos">Projetos</a></li>
+        <li class="nav__item"><a href="#sobre">Sobre</a></li>
+        <li class="nav__item"><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="menu-mobile" aria-expanded="false" aria-label="Menu">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Arquitetura que transforma espaços</h1>
+        <p class="hero__subtitle">Soluções inteligentes desde 2010</p>
+        <a href="#contato" class="button">Solicite seu projeto</a>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <h2 class="section__title">Projetos em Destaque</h2>
+
+      <div class="search-container">
+        <input type="text" id="project-search" placeholder="Buscar projetos...">
+        <button class="search-btn" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="residencial">Residencial</button>
+        <button class="filter-btn" data-filter="comercial">Comercial</button>
+        <button class="filter-btn" data-filter="interiores">Interiores</button>
+      </div>
+
+      <div class="filter-counter"></div>
+
+      <div class="sort-options">
+        Ordenar por:
+        <button class="sort-btn active" data-sort="relevance">Relevância</button>
+        <button class="sort-btn" data-sort="year">Ano</button>
+        <button class="sort-btn" data-sort="name">Nome</button>
+      </div>
+
+      <div class="carrossel">
+        <button class="carrossel__btn carrossel__btn--prev" aria-label="Projeto anterior">‹</button>
+        <div class="carrossel__container"></div>
+        <button class="carrossel__btn carrossel__btn--next" aria-label="Próximo projeto">›</button>
+      </div>
+    </section>
+
+    <section class="favorites-section">
+      <!-- Conteúdo será gerado dinamicamente -->
+    </section>
+
+    <section id="contato" class="section contact">
+      <h2 class="section__title">Entre em Contato</h2>
+      <form id="contact-form" class="contact__form" novalidate>
+        <div class="form__group">
+          <input type="text" id="name" name="name" required aria-describedby="name-error">
+          <label for="name">Nome Completo*</label>
+          <span id="name-error" class="error-message" aria-live="polite"></span>
+        </div>
+
+        <div class="form__group">
+          <input type="email" id="email" name="email" required aria-describedby="email-error">
+          <label for="email">E-mail*</label>
+          <span id="email-error" class="error-message" aria-live="polite"></span>
+        </div>
+
+        <div class="form__group">
+          <input type="tel" id="phone" name="phone" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" required
+            aria-describedby="phone-error">
+          <label for="phone">Telefone* <span class="hint">(XX) XXXX-XXXX</span></label>
+          <span id="phone-error" class="error-message" aria-live="polite"></span>
+        </div>
+
+        <div class="form__group">
+          <select id="project-type" name="project-type">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="residencial">Residencial</option>
+            <option value="comercial">Comercial</option>
+            <option value="outro">Outro</option>
+          </select>
+          <label for="project-type">Tipo de Projeto</label>
+        </div>
+
+        <div class="form__group">
+          <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+          <label for="message">Descreva seu projeto*</label>
+          <span id="message-error" class="error-message" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="button button--submit">
+          <span class="button__text">Enviar Mensagem</span>
+          <span class="button__loader" hidden aria-hidden="true"></span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2023 William Campos Arquitetura. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal da Galeria -->
+  <div id="gallery-modal" class="gallery-modal" aria-hidden="true" role="dialog">
+    <div class="gallery-modal__content">
+      <button class="gallery-modal__close" aria-label="Fechar galeria">✕</button>
+      <img class="gallery-modal__image" src="" alt="">
+      <div class="gallery-modal__info">
+        <h3 class="gallery-modal__title"></h3>
+        <p class="gallery-modal__description"></p>
+        <div class="gallery-modal__thumbs"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
