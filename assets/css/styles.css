@@ -142,7 +142,7 @@ button {
     background:
         linear-gradient(rgba(22, 59, 85, 0.8),
             rgba(22, 59, 85, 0.8)),
-        url('/assets/imagens/hero-bg.png') center/cover;
+        url('/assets/imagens/banner.png') center/cover;
     color: white;
 }
 
